@@ -2,7 +2,7 @@
   <br />
   <h1>LAPORAN PRAKTIKUM <br>APLIKASI BERBASIS PLATFORM</h1>
   <br />
-  <h3>MODUL 11, 12 & 13 <br> Laravel — Aplikasi Inventori Buku (CRUD + Autentikasi)</h3>
+  <h3>MODUL 11, 12 & 13 <br> Laravel Aplikasi Inventori Buku </h3>
   <br />
   <br />
   <img src="public/assets/logo.jpeg" alt="Logo Universitas Telkom Purwokerto" width="300">
@@ -39,7 +39,7 @@ Sistem **Inventori Buku** ini dibangun menggunakan framework Laravel dengan pola
 
 ## 2. Penjelasan Kode Sumber
 
-### 2.1 Migration — Struktur Tabel Database
+### 2.1 Migration Struktur Tabel Database
 
 Migration mendefinisikan skema tabel `products` di database. Setiap kolom beserta tipe datanya dideklarasikan, lalu dijalankan dengan perintah `php artisan migrate`. *File Referensi: `database/migrations/2026_04_07_134703_create_products_table.php`*
 
@@ -73,7 +73,7 @@ return new class extends Migration
 
 ---
 
-### 2.2 Model — `Product.php`
+### 2.2 Model `Product.php`
 
 Model adalah representasi dari tabel database dalam bentuk objek PHP (Eloquent ORM). Properti `$fillable` mendaftarkan kolom mana saja yang boleh diisi secara massal (*mass assignment*) untuk keamanan. *File Referensi: `app/Models/Product.php`*
 
@@ -96,7 +96,7 @@ class Product extends Model
 
 ---
 
-### 2.3 Database Seeder — Data Awal Buku
+### 2.3 Database Seeder Data Awal Buku
 
 Seeder digunakan untuk mengisi database dengan data awal secara otomatis menggunakan perintah `php artisan db:seed`. Data ini mencakup akun pengguna dan 20 data buku pelajaran SMA. *File Referensi: `database/seeders/DatabaseSeeder.php`*
 
@@ -137,7 +137,7 @@ class DatabaseSeeder extends Seeder
 
 ---
 
-### 2.4 Routes — `web.php`
+### 2.4 Routes `web.php`
 
 Routes mendefinisikan URL yang dapat diakses oleh pengguna beserta controller yang menanganinya. Route `resource` secara otomatis membuat 7 route CRUD sekaligus. Semua route dibungkus middleware `auth` agar hanya pengguna yang sudah login yang bisa mengaksesnya. *File Referensi: `routes/web.php`*
 
@@ -173,7 +173,7 @@ require __DIR__.'/auth.php';
 
 ---
 
-### 2.5 Controller — `ProductController.php`
+### 2.5 Controller `ProductController.php`
 
 Controller adalah inti logika aplikasi. Setiap method menangani satu jenis request HTTP dan menghubungkan Model dengan View. *File Referensi: `app/Http/Controllers/ProductController.php`*
 
@@ -251,7 +251,7 @@ class ProductController extends Controller
 
 ---
 
-### 2.6 View — Layout Utama (`layouts/app.blade.php`)
+### 2.6 View Layout Utama (`layouts/app.blade.php`)
 
 Layout utama mendefinisikan kerangka halaman yang digunakan oleh semua halaman dalam aplikasi (Dashboard, Produk, dll). Menggunakan komponen Blade `x-app-layout`. Berisi sidebar navigasi, top header, dan area konten utama. *File Referensi: `resources/views/layouts/app.blade.php`*
 
@@ -309,7 +309,7 @@ Layout utama mendefinisikan kerangka halaman yang digunakan oleh semua halaman d
 
 ---
 
-### 2.7 View — Halaman Login (`auth/login.blade.php`)
+### 2.7 View Halaman Login (`auth/login.blade.php`)
 
 Halaman login menggunakan layout `x-guest-layout`. Form mengirim data email dan password ke route `login` menggunakan metode POST, dilengkapi CSRF token untuk keamanan. *File Referensi: `resources/views/auth/login.blade.php`*
 
@@ -346,7 +346,7 @@ Halaman login menggunakan layout `x-guest-layout`. Form mengirim data email dan 
 
 ---
 
-### 2.8 View — Dashboard (`dashboard.blade.php`)
+### 2.8 View Dashboard (`dashboard.blade.php`)
 
 Halaman dashboard menampilkan ringkasan statistik inventori: total produk, total stok, dan jumlah produk yang perlu restok, serta tabel 5 buku yang terakhir ditambahkan. *File Referensi: `resources/views/dashboard.blade.php`*
 
@@ -406,7 +406,7 @@ Halaman dashboard menampilkan ringkasan statistik inventori: total produk, total
 
 ---
 
-### 2.9 View — Daftar Produk (`products/index.blade.php`)
+### 2.9 View Daftar Produk (`products/index.blade.php`)
 
 Halaman index menampilkan semua produk dalam tabel berpaginasi. Terdapat tombol **Ubah** (menuju halaman edit) dan **Hapus** (membuka modal konfirmasi). Modal hapus dikendalikan oleh fungsi JavaScript murni (`openDeleteModal`) yang mengisi form action secara dinamis. *File Referensi: `resources/views/products/index.blade.php`*
 
@@ -484,7 +484,7 @@ Halaman index menampilkan semua produk dalam tabel berpaginasi. Terdapat tombol 
 
 ---
 
-### 2.10 View — Form Tambah Produk (`products/create.blade.php`)
+### 2.10 View Form Tambah Produk (`products/create.blade.php`)
 
 Form tambah produk menggunakan metode POST ke route `products.store`. Terdapat validasi error yang ditampilkan di bawah setiap input apabila input tidak valid. *File Referensi: `resources/views/products/create.blade.php`*
 
@@ -533,7 +533,7 @@ Form tambah produk menggunakan metode POST ke route `products.store`. Terdapat v
 
 ---
 
-### 2.11 View — Form Edit Produk (`products/edit.blade.php`)
+### 2.11 View Form Edit Produk (`products/edit.blade.php`)
 
 Form edit menggunakan metode PUT (di-*spoof* melalui `@method('PUT')`) ke route `products.update`. Field-field diisi otomatis dengan data produk yang sedang diedit menggunakan helper `old()` dengan fallback ke nilai dari database `$product->field`. *File Referensi: `resources/views/products/edit.blade.php`*
 
