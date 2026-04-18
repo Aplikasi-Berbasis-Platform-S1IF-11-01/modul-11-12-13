@@ -237,7 +237,6 @@ Dashboard (`/admin/dashboard`) ditangani oleh `DashboardController` dan menampil
 ---
 
 ## SourceCode
-[Folder Controllers](../inventori-toko/app/Http/Controllers)
 AuthController.php
 ```
 <?php
@@ -641,7 +640,6 @@ class ShopController extends Controller
 }
 ```
 
-[Folder Middleware](../inventori-toko/app/Http/Middleware)
 RoleMiddleware.php
 ```
 <?php
@@ -677,7 +675,6 @@ class RoleMiddleware
 }
 ```
 
-[Folder Models](../inventori-toko/app/Models)
 Order.php
 ```
 <?php
@@ -854,7 +851,6 @@ class User extends Authenticatable
 }
 ```
 
-[Folder Providers](../inventori-toko/app/Providers)
 AppServiceProvider.php
 ```
 <?php
@@ -877,7 +873,6 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-[Folder config](../inventori-toko/config)
 app.php
 ```
 <?php
@@ -1059,7 +1054,6 @@ return [
 ];
 ```
 
-[Folder factories](../inventori-toko/database/factories)
 ProductFactory.php
 ```
 <?php
@@ -1278,7 +1272,6 @@ class UserFactory extends Factory
 }
 ```
 
-[Forder migrations](../inventori-toko/database/migrations)
 2024_01_01_000001_create_users_table.php
 ```
 <?php
@@ -1432,7 +1425,6 @@ return new class extends Migration
 };
 ```
 
-[Folder seeders](../inventori-toko/database/seeders)
 DatabaseSeeder.php
 ```
 <?php
@@ -1488,7 +1480,6 @@ class DatabaseSeeder extends Seeder
 }
 ```
 
-[Folder views](../inventori-toko/resources/views)
 dashboard.blade.php
 ```
 @extends('layouts.app')
@@ -1679,7 +1670,6 @@ dashboard.blade.php
 @endsection
 ```
 
-[Folder auth](../inventori-toko/resources/views/auth)
 login.blade.php
 ```
 @extends('layouts.auth')
@@ -1825,7 +1815,6 @@ register.blade.php
 @endsection
 ```
 
-[Folder layouts](../inventori-toko/resources/views/layouts)
 app.blade.php
 ```
 <!DOCTYPE html>
@@ -2200,7 +2189,6 @@ auth.blade.php
 </html>
 ```
 
-[Folder Product](../inventori-toko/resources/views/products)
 create.blade.php
 ```
 @extends('layouts.app')
@@ -2670,7 +2658,6 @@ document.getElementById('confirmDeleteBtn').addEventListener('click', function (
 @endsection
 ```
 
-[Folder shop](../inventori-toko/resources/views/shop)
 cart.blade.php
 ```
 @extends('layouts.app')
@@ -2910,7 +2897,6 @@ index.blade.php
 @endsection
 ```
 
-[Folder routes](../inventori-toko/routes)
 web.php
 ```
 <?php
@@ -2955,7 +2941,7 @@ Route::middleware(['auth', 'role:customer'])->name('shop.')->group(function () {
 });
 ```
 
-[.env](../inventori-toko/.env)
+.env
 ```
 APP_NAME="Toko Inventory Aimar"
 APP_ENV=local
