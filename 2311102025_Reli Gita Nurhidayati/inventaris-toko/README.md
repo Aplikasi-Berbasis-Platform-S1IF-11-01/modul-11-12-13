@@ -394,9 +394,4 @@ Kesimpulannya, framework Laravel terbukti mempercepat proses pengembangan aplika
 
 ---
 
-<div align="center">
-  <br>
-  <p><strong>2311102025 - Reli Gita Nurhidayati</strong></p>
-  <p>Praktikum Aplikasi Berbasis Platform | Modul 11, 12, 13 | 2026</p>
-  <p>Universitas Telkom Purwokerto</p>
 </div>
