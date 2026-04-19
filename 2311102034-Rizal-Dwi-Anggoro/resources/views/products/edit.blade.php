@@ -1,0 +1,273 @@
+@extends('layouts.app')
+
+@section('title', 'Edit Produk')
+@section('page-title', 'Edit Produk')
+@section('page-subtitle', 'Perbarui informasi produk yang sudah ada')
+
+@section('content')
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb" style="font-size: .85rem;">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('products.index') }}" class="text-decoration-none" style="color: #e94560;">
+                            <i class="bi bi-box-seam me-1"></i>Produk
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item active text-muted">Edit: {{ Str::limit($product->name, 30) }}</li>
+                </ol>
+            </nav>
+
+            <!-- Info badge produk yang sedang diedit -->
+            <div class="alert d-flex align-items-center gap-3 mb-3"
+                 style="background: #f0f4ff; border: 1.5px solid #c7d2fe; border-radius: 12px; color: #3730a3;">
+                <i class="bi bi-info-circle-fill fs-5"></i>
+                <div>
+                    Sedang mengedit: <strong>{{ $product->name }}</strong>
+                    &nbsp;·&nbsp;
+                    <span class="text-muted">ID #{{ $product->id }}</span>
+                    &nbsp;·&nbsp;
+                    Ditambahkan {{ $product->created_at->diffForHumans() }}
+                </div>
+            </div>
+
+            <!-- Form Card -->
+            <div class="card">
+                <div class="card-header bg-white py-3 px-4"
+                     style="border-bottom: 1px solid #e8eaed; border-radius: 16px 16px 0 0;">
+                    <h5 class="mb-0 fw-bold" style="font-family: 'Syne', sans-serif; color: #1a1a2e;">
+                        <i class="bi bi-pencil-square me-2" style="color: #e94560;"></i>
+                        Edit Informasi Produk
+                    </h5>
+                </div>
+
+                <div class="card-body p-4">
+                    {{-- Form edit menggunakan method spoofing (PUT) --}}
+                    <form method="POST"
+                          action="{{ route('products.update', $product->id) }}"
+                          id="editForm">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="row g-4">
+
+                            {{-- Nama Produk --}}
+                            <div class="col-12">
+                                <label for="name" class="form-label">
+                                    Nama Produk
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    class="form-control @error('name') is-invalid @enderror"
+                                    value="{{ old('name', $product->name) }}"
+                                    placeholder="Nama produk..."
+                                    maxlength="255"
+                                    required
+                                >
+                                @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            {{-- Kategori --}}
+                            <div class="col-md-6">
+                                <label for="category" class="form-label">
+                                    Kategori
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <select
+                                    id="category"
+                                    name="category"
+                                    class="form-select @error('category') is-invalid @enderror"
+                                    required
+                                >
+                                    <option value="" disabled>— Pilih Kategori —</option>
+
+                                    @foreach($categories as $cat)
+                                        <option value="{{ $cat }}"
+                                            {{ old('category', $product->category) === $cat ? 'selected' : '' }}>
+                                            {{ $cat }}
+                                        </option>
+                                    @endforeach
+
+                                    {{-- Jika kategori produk ini tidak ada di daftar, tambahkan --}}
+                                    @if(!$categories->contains($product->category))
+                                        <option value="{{ $product->category }}" selected>
+                                            {{ $product->category }}
+                                        </option>
+                                    @endif
+
+                                    <option value="__new__">+ Tambah Kategori Baru...</option>
+                                </select>
+
+                                <input
+                                    type="text"
+                                    id="newCategory"
+                                    class="form-control mt-2 d-none"
+                                    placeholder="Ketik nama kategori baru..."
+                                    maxlength="100"
+                                >
+
+                                @error('category')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            {{-- Harga --}}
+                            <div class="col-md-6">
+                                <label for="price" class="form-label">
+                                    Harga Satuan (Rp)
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text"
+                                          style="background: #f8f9fa; border: 1.5px solid #e8eaed; border-right: none; border-radius: 10px 0 0 10px; font-weight: 600; font-size: .85rem;">
+                                        Rp
+                                    </span>
+                                    <input
+                                        type="number"
+                                        id="price"
+                                        name="price"
+                                        class="form-control @error('price') is-invalid @enderror"
+                                        value="{{ old('price', $product->price) }}"
+                                        placeholder="0"
+                                        min="0"
+                                        step="500"
+                                        style="border-left: none; border-radius: 0 10px 10px 0;"
+                                        required
+                                    >
+                                </div>
+                                @error('price')
+                                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                                @enderror
+                                <div class="form-text" id="pricePreview">
+                                    Harga saat ini: <strong>{{ $product->formatted_price }}</strong>
+                                </div>
+                            </div>
+
+                            {{-- Stok --}}
+                            <div class="col-md-6">
+                                <label for="stock" class="form-label">
+                                    Jumlah Stok
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group">
+                                    <input
+                                        type="number"
+                                        id="stock"
+                                        name="stock"
+                                        class="form-control @error('stock') is-invalid @enderror"
+                                        value="{{ old('stock', $product->stock) }}"
+                                        placeholder="0"
+                                        min="0"
+                                        required
+                                    >
+                                    <span class="input-group-text"
+                                          style="background: #f8f9fa; border: 1.5px solid #e8eaed; border-left: none; border-radius: 0 10px 10px 0; font-size: .85rem;">
+                                        unit
+                                    </span>
+                                </div>
+                                @error('stock')
+                                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                                @enderror
+                                <div class="form-text">
+                                    Stok saat ini: <strong>{{ number_format($product->stock) }} unit</strong>
+                                    <span class="badge bg-{{ $product->stock_badge_class }}-subtle text-{{ $product->stock_badge_class }} ms-1">
+                                        {{ $product->stock_status }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            {{-- Deskripsi --}}
+                            <div class="col-12">
+                                <label for="description" class="form-label">
+                                    Deskripsi
+                                    <span class="text-muted" style="font-weight: 400;">(opsional)</span>
+                                </label>
+                                <textarea
+                                    id="description"
+                                    name="description"
+                                    class="form-control @error('description') is-invalid @enderror"
+                                    rows="3"
+                                    placeholder="Tambahkan deskripsi produk..."
+                                    maxlength="1000"
+                                >{{ old('description', $product->description) }}</textarea>
+                                @error('description')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <div class="form-text">
+                                    <span id="charCount">{{ strlen(old('description', $product->description ?? '')) }}</span>/1000 karakter
+                                </div>
+                            </div>
+
+                        </div>
+
+                        {{-- Tombol Aksi --}}
+                        <div class="d-flex gap-2 mt-4 pt-3" style="border-top: 1px solid #e8eaed;">
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-check-lg me-1"></i>
+                                Simpan Perubahan
+                            </button>
+                            <a href="{{ route('products.index') }}"
+                               class="btn btn-outline-secondary px-4"
+                               style="border-radius: 10px;">
+                                <i class="bi bi-arrow-left me-1"></i>
+                                Batal & Kembali
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+@endsection
+
+@push('scripts')
+<script>
+    // Update preview harga saat mengetik
+    document.getElementById('price').addEventListener('input', function() {
+        const val = parseInt(this.value);
+        const preview = document.getElementById('pricePreview');
+        if (val && val > 0) {
+            preview.innerHTML = 'Preview: <strong>Rp ' + val.toLocaleString('id-ID') + '</strong>';
+        } else {
+            preview.textContent = '';
+        }
+    });
+
+    // Counter karakter deskripsi
+    document.getElementById('description').addEventListener('input', function() {
+        document.getElementById('charCount').textContent = this.value.length;
+    });
+
+    // Handle dropdown kategori
+    document.getElementById('category').addEventListener('change', function() {
+        const newCategoryInput = document.getElementById('newCategory');
+        if (this.value === '__new__') {
+            newCategoryInput.classList.remove('d-none');
+            newCategoryInput.focus();
+            newCategoryInput.addEventListener('input', function() {
+                let tempOption = document.getElementById('category').querySelector('[value="__temp__"]');
+                if (!tempOption) {
+                    tempOption = new Option(this.value, this.value);
+                    document.getElementById('category').appendChild(tempOption);
+                }
+                tempOption.value = this.value;
+                tempOption.textContent = this.value;
+                document.getElementById('category').value = this.value;
+            });
+        } else {
+            newCategoryInput.classList.add('d-none');
+        }
+    });
+</script>
+@endpush
