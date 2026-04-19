@@ -70,8 +70,7 @@ Project ini dibuat sebagai **Tugas Modul 11, 12, dan 13** yang mengimplementasik
 ### 1. Clone / Download Project
 
 ```bash
-git clone <url-repo>
-cd inventaris-toko
+git clone `https://github.com/Aplikasi-Berbasis-Platform-S1IF-11-01/modul-11-12-13/tree/main/2311102034-Rizal-Dwi-Anggoro.git`
 ```
 
 ### 2. Install Dependency PHP
