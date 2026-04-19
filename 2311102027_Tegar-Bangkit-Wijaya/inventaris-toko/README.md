@@ -10,6 +10,10 @@
 
 ---
 
+<img src="../screenshots/Logo_Telkom_University_potrait.png" width="200">
+
+---
+
 **Disusun Oleh :**
 
 **TEGAR BANGKIT WIJAYA**
@@ -355,37 +359,37 @@ public function destroy(Product $product)
 ### 4.1 Halaman Login
 Saat aplikasi dibuka melalui browser pada alamat `http://localhost:8000`, pengguna diarahkan ke halaman login oleh `AuthMiddleware`. Halaman ini menampilkan form input email dan password dengan desain modern bergradien biru-ungu gelap dan animasi partikel di latar belakang. Terdapat fitur show/hide password menggunakan tombol toggle. Jika email atau password salah, muncul pesan error merah di atas form. Tersedia juga informasi akun demo untuk memudahkan pengujian.
 
-![Halaman Login](screenshots/login.png)
+![Halaman Login](../screenshots/login.png)
 
 ### 4.2 Halaman Dashboard
 Setelah login berhasil, pengguna diarahkan ke halaman dashboard. Dashboard menampilkan 4 kartu statistik utama: Total Produk, Produk Aktif, Stok Hampir Habis (stok ≤ 10), dan Stok Habis (stok = 0). Di bawahnya terdapat kartu estimasi nilai total inventaris yang dihitung dari `SUM(stok × harga_jual)` seluruh produk aktif, serta tabel 5 produk terbaru yang baru ditambahkan ke sistem.
 
-![Halaman Dashboard](screenshots/dashboard.png)
+![Halaman Dashboard](../screenshots/dashboard.png)
 
 ### 4.3 Halaman Daftar Produk (DataTable)
 Halaman ini menampilkan seluruh data produk dalam bentuk tabel interaktif. Tersedia form filter di bagian atas dengan tiga opsi: pencarian teks bebas (nama/kode/kategori), dropdown filter kategori, dan dropdown filter status. Setiap baris data dilengkapi badge berwarna untuk stok (hijau = normal, kuning = hampir habis, merah = habis) dan badge status (aktif/nonaktif). Tersedia tiga tombol aksi per baris: Detail 👁️, Edit ✏️, dan Hapus 🗑️. Pagination Laravel ditampilkan di bagian bawah tabel.
 
-![Halaman Daftar Produk](screenshots/index.png)
+![Halaman Daftar Produk](../screenshots/index.png)
 
 ### 4.4 Modal Konfirmasi Hapus
 Ketika tombol Hapus 🗑️ diklik, muncul modal konfirmasi bergradien merah yang menampilkan nama dan kode produk yang akan dihapus. Modal ini memberikan peringatan bahwa tindakan tidak dapat dibatalkan dan meminta konfirmasi pengguna sebelum data benar-benar dihapus dari database. Terdapat dua tombol: **Batal** (menutup modal) dan **Ya, Hapus Sekarang** (mengirim request DELETE).
 
-![Modal Konfirmasi Hapus](screenshots/modal-hapus.png)
+![Modal Konfirmasi Hapus](../screenshots/modal-hapus.png)
 
 ### 4.5 Form Tambah Produk
 Halaman form tambah produk terbagi menjadi dua section: **Informasi Dasar** (kode, nama, kategori, satuan, status, deskripsi) dan **Stok & Harga** (stok, harga beli, harga jual). Terdapat fitur generate kode produk otomatis melalui AJAX tanpa reload halaman. Input kategori menggunakan `datalist` HTML5 untuk saran autocomplete. Kalkulasi margin keuntungan real-time menampilkan persentase margin, keuntungan per item, dan estimasi nilai stok saat angka harga diubah.
 
-![Form Tambah Produk](screenshots/create.png)
+![Form Tambah Produk](../screenshots/create.png)
 
 ### 4.6 Form Edit Produk
 Halaman form edit identik dengan form tambah, namun semua field sudah terisi dengan data produk yang dipilih (pre-filled dari database). Terdapat informasi waktu produk dibuat dan terakhir diperbarui di bagian bawah form. Kalkulasi margin real-time juga aktif untuk membantu pengguna menyesuaikan harga jual.
 
-![Form Edit Produk](screenshots/edit.png)
+![Form Edit Produk](../screenshots/edit.png)
 
 ### 4.7 Halaman Detail Produk
 Halaman detail menampilkan informasi lengkap satu produk dalam dua kolom. Kolom kiri berisi tabel informasi umum (kode, nama, kategori, satuan, deskripsi, timestamp dibuat dan diperbarui). Kolom kanan berisi dua kartu: kartu stok dengan indikator warna (hijau/kuning/merah) dan kartu harga yang menampilkan harga beli, harga jual, margin, profit per item, dan nilai inventaris.
 
-![Halaman Detail Produk](screenshots/show.png)
+![Halaman Detail Produk](../screenshots/show.png)
 
 ---
 
