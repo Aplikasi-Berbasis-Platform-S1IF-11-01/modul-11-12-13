@@ -137,7 +137,7 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-    // 3. Menyimpan Data Baru ke Database (SUDAH DIPERBAIKI)
+    // 3. Menyimpan Data Baru 
     public function store(Request $request) {
         $validatedData = $request->validate([
             'nama_produk' => 'required',
@@ -146,7 +146,7 @@ class ProductController extends Controller
             'stok'        => 'required|numeric|min:0',
         ]);
 
-        // Simpan data yang sudah divalidasi saja
+        // Simpan data yang sudah divalidasi 
         Product::create($validatedData);
         
         return redirect()->route('products.index')->with('success', 'Produk baru berhasil ditambahkan ke gudang!');
@@ -157,7 +157,7 @@ class ProductController extends Controller
         return view('products.edit', compact('product'));
     }
 
-    // 5. Menyimpan Perubahan Data / Update 
+    // 5. Menyimpan Update 
     public function update(Request $request, Product $product) {
         $validatedData = $request->validate([
             'nama_produk' => 'required',
