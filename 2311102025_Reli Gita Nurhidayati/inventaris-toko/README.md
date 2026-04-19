@@ -2,7 +2,7 @@
   <br />
   <h1>LAPORAN PRAKTIKUM <br>APLIKASI BERBASIS PLATFORM</h1>
   <br />
-  <h2>MODUL 11, 12, 13 <br>LARAVEL - INVENTORI TOKO</h2>
+  <h2>MODUL 11, 12, 13 <br>LARAVEL - INVENTARIS TOKO</h2>
   <br />
   <br />
   <img src="Logo_Telkom.png" alt="Logo Telkom" width="300">
@@ -50,7 +50,7 @@
 
 ---
 
-# 2. Tugas Modul 11, 12, 13 - Laravel Inventori Toko
+# 2. Tugas Modul 11, 12, 13 - Laravel Invanteris Toko
 
 Pada tugas ini dibuat sebuah aplikasi web **Sistem Inventaris Toko Mas Aimar** berbasis Laravel. Aplikasi ini memungkinkan pengelola toko untuk mengelola data inventaris produk secara efisien dengan fitur CRUD lengkap, autentikasi session, dan tampilan DataTable interaktif.
 
