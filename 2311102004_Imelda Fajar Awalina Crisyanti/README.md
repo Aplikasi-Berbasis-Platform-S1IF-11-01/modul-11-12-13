@@ -214,7 +214,61 @@ class Product extends Model
 }
 
 ```
+### D. Konfigurasi Vite (vite.config.js)
+```
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
 
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+    ],
+});
+
+```
+
+### E. Konfigurasi Tailwind CSS (tailwind.config.js)
+```
+
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+    ],
+
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            },
+        },
+    },
+
+    plugins: [forms],
+};
+
+```
+
+### F. Konfigurasi PostCSS (postcss.config.js)
+```
+
+export default {
+    plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+    },
+};
+
+
+###
 
 
 
