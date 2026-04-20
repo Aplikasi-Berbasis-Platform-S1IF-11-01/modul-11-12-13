@@ -272,12 +272,10 @@ export default {
 ## Output 
 
 ### A. login 
-```
+
 <p>
 <img src="output/login.png" width="800">
 </p>
-
-```
 
 
 
