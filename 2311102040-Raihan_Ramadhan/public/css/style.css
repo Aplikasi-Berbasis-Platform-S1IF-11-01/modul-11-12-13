@@ -1,0 +1,105 @@
+/* ===== GLOBAL ===== */
+body {
+    background: #f4f6fb;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar-custom {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border-radius: 0 0 15px 15px;
+}
+
+.navbar-custom .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar-custom .btn {
+    border-radius: 20px;
+}
+
+/* ===== CARD ===== */
+.card-custom {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ===== TITLE ===== */
+h3 {
+    font-weight: 700;
+    color: #333;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== TABLE ===== */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: #4f46e5;
+    color: #fff;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f5ff;
+}
+
+/* ===== FORM ===== */
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 5px rgba(99,102,241,0.3);
+}
+
+/* ===== IMAGE ===== */
+img {
+    border-radius: 10px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* ===== LOGIN BOX ===== */
+.login-box {
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+.card-custom {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ===== BADGE STOCK ===== */
+.stock-low {
+    color: red;
+    font-weight: bold;
+}
+
+.stock-high {
+    color: green;
+    font-weight: bold;
+}
