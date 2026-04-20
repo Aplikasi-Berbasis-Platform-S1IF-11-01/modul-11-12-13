@@ -5,7 +5,7 @@
   <h3>MODUL 11, 12 & 13 <br> Laravel Aplikasi Inventori Produk </h3>
   <br />
   <br />
-  <img src="logoTelkom.png" width="300">
+  <img src="LogoTelkom.png" alt="Logo" width="300">
   <br />
   <br />
   <br />
