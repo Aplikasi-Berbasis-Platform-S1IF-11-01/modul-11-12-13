@@ -371,6 +371,7 @@ Kombinasi ketiga tools tersebut membuat proses pengembangan frontend menjadi leb
 
 ### Struktur Folder
 
+```text
 inventori-toko/
 ├── app/
 │   ├── Http/
@@ -407,6 +408,7 @@ inventori-toko/
 ├── postcss.config.js
 ├── tailwind.config.js
 └── vite.config.js
+```
 
 
 ## KESIMPULAN 
