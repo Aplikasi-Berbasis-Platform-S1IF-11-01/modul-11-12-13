@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-[#05070d] text-slate-100 font-sans antialiased;
+        background-image:
+            radial-gradient(circle at top, rgba(34, 211, 238, 0.10), transparent 30%),
+            radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.08), transparent 25%),
+            linear-gradient(135deg, #05070d 0%, #0b1220 45%, #05070d 100%);
+        min-height: 100vh;
+    }
+
+    ::selection {
+        background: rgba(34, 211, 238, 0.25);
+        color: #ffffff;
+    }
+
+    * {
+        border-color: rgba(148, 163, 184, 0.18);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-white font-semibold tracking-wide;
+    }
+
+    p {
+        @apply text-slate-300;
+    }
+
+    a {
+        @apply transition duration-300;
+    }
+
+    input,
+    textarea,
+    select {
+        @apply text-white;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #070b12;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, rgba(34,211,238,0.35), rgba(59,130,246,0.25));
+        border-radius: 9999px;
+        border: 2px solid #070b12;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, rgba(34,211,238,0.55), rgba(59,130,246,0.40));
+    }
+}
+
+@layer components {
+    .jarvis-panel {
+        @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.06),
+            0 0 0 1px rgba(34,211,238,0.04),
+            0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .jarvis-panel-strong {
+        @apply rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-white/10 to-white/[0.03] backdrop-blur-xl;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 0 30px rgba(34,211,238,0.08),
+            0 12px 35px rgba(0,0,0,0.40);
+    }
+
+    .jarvis-card {
+        @apply rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition duration-300;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.06),
+            0 12px 30px rgba(0,0,0,0.30);
+    }
+
+    .jarvis-card:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 0 22px rgba(34,211,238,0.08),
+            0 16px 35px rgba(0,0,0,0.38);
+    }
+
+    .jarvis-title {
+        @apply text-2xl md:text-3xl font-bold text-white tracking-[0.08em];
+    }
+
+    .jarvis-subtitle {
+        @apply text-xs uppercase tracking-[0.35em] text-cyan-300/70;
+    }
+
+    .jarvis-button {
+        @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-cyan-400/25 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition duration-300;
+        background: linear-gradient(180deg, rgba(34,211,238,0.16), rgba(255,255,255,0.04));
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 0 18px rgba(34,211,238,0.08);
+    }
+
+    .jarvis-button:hover {
+        @apply border-cyan-300/40 text-cyan-200;
+        background: linear-gradient(180deg, rgba(34,211,238,0.22), rgba(255,255,255,0.07));
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.10),
+            0 0 24px rgba(34,211,238,0.16);
+        transform: translateY(-1px);
+    }
+
+    .jarvis-button-secondary {
+        @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-200 transition duration-300 backdrop-blur-md;
+    }
+
+    .jarvis-button-secondary:hover {
+        @apply border-cyan-400/30 bg-cyan-400/10 text-cyan-200;
+        box-shadow: 0 0 20px rgba(34,211,238,0.10);
+    }
+
+    .jarvis-button-danger {
+        @apply inline-flex items-center justify-center gap-2 rounded-2xl border px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition duration-300;
+        border-color: rgba(248, 113, 113, 0.30);
+        background: linear-gradient(180deg, rgba(239,68,68,0.16), rgba(255,255,255,0.03));
+    }
+
+    .jarvis-button-danger:hover {
+        border-color: rgba(248, 113, 113, 0.55);
+        box-shadow: 0 0 20px rgba(239,68,68,0.15);
+        transform: translateY(-1px);
+    }
+
+    .jarvis-input {
+        @apply w-full rounded-2xl border border-white/10 bg-[#0b1220]/80 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition duration-300 backdrop-blur-md;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .jarvis-input:focus {
+        border-color: rgba(34, 211, 238, 0.45);
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.05),
+            0 0 0 4px rgba(34,211,238,0.10),
+            0 0 22px rgba(34,211,238,0.10);
+    }
+
+    .jarvis-textarea {
+        @apply w-full rounded-2xl border border-white/10 bg-[#0b1220]/80 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition duration-300 backdrop-blur-md;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .jarvis-textarea:focus {
+        border-color: rgba(34, 211, 238, 0.45);
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.05),
+            0 0 0 4px rgba(34,211,238,0.10),
+            0 0 22px rgba(34,211,238,0.10);
+    }
+
+    .jarvis-label {
+        @apply mb-2 block text-xs font-semibold uppercase tracking-[0.22em] text-slate-300;
+    }
+
+    .jarvis-table {
+        @apply min-w-full divide-y divide-white/10;
+    }
+
+    .jarvis-table thead {
+        @apply bg-white/5;
+    }
+
+    .jarvis-table thead th {
+        @apply px-6 py-4 text-left text-xs font-bold uppercase tracking-[0.22em] text-cyan-300/85;
+    }
+
+    .jarvis-table tbody tr {
+        @apply border-t border-white/5 transition duration-300;
+    }
+
+    .jarvis-table tbody tr:hover {
+        @apply bg-cyan-400/[0.04];
+    }
+
+    .jarvis-table tbody td {
+        @apply px-6 py-4 text-sm text-slate-200;
+    }
+
+    .jarvis-badge {
+        @apply inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-200;
+    }
+
+    .jarvis-badge-neutral {
+        @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300;
+    }
+
+    .jarvis-badge-danger {
+        @apply inline-flex items-center rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-red-200;
+        border-color: rgba(248, 113, 113, 0.20);
+        background: rgba(239, 68, 68, 0.10);
+    }
+
+    .jarvis-empty {
+        @apply rounded-3xl border border-dashed border-white/10 bg-white/[0.03] px-8 py-14 text-center backdrop-blur-md;
+    }
+
+    .jarvis-empty-title {
+        @apply text-lg font-semibold text-white;
+    }
+
+    .jarvis-empty-text {
+        @apply mt-2 text-sm text-slate-400;
+    }
+
+    .jarvis-stat {
+        @apply rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition duration-300;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.05),
+            0 12px 30px rgba(0,0,0,0.28);
+    }
+
+    .jarvis-stat:hover {
+        @apply border-cyan-400/20;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 0 22px rgba(34,211,238,0.08),
+            0 14px 35px rgba(0,0,0,0.34);
+    }
+
+    .jarvis-stat-label {
+        @apply text-xs uppercase tracking-[0.30em] text-slate-400;
+    }
+
+    .jarvis-stat-value {
+        @apply mt-3 text-3xl font-bold text-white;
+    }
+
+    .jarvis-divider {
+        @apply h-px w-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent;
+    }
+
+    .jarvis-alert-success {
+        @apply rounded-2xl border px-4 py-3 text-sm text-emerald-200;
+        border-color: rgba(52, 211, 153, 0.22);
+        background: rgba(16, 185, 129, 0.10);
+    }
+
+    .jarvis-alert-danger {
+        @apply rounded-2xl border px-4 py-3 text-sm text-red-200;
+        border-color: rgba(248, 113, 113, 0.22);
+        background: rgba(239, 68, 68, 0.10);
+    }
+}
+
+@layer utilities {
+    .text-glow-cyan {
+        text-shadow: 0 0 12px rgba(34, 211, 238, 0.45);
+    }
+
+    .bg-jarvis-grid {
+        background-image:
+            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+    }
+}
