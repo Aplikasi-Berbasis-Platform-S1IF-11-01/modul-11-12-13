@@ -267,8 +267,18 @@ export default {
     },
 };
 
+```
 
-###
+## Output 
+
+### A. login 
+```
+<p align="center">
+  <img src="output/login.png" width="800">
+</p>
+
+```
+
 
 
 
