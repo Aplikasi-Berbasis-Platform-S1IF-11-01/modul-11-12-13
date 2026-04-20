@@ -273,9 +273,7 @@ export default {
 
 ### A. login 
 ```
-<p align="center">
-  <img src="output/login.png" width="800">
-</p>
+<img src="https://raw.githubusercontent.com/Aplikasi-Berbasis-Platform-S1IF-11-01/MODUL-11-12-13/2311102004_Imelda Fajar Awalina Crisyanti/output/login.png">
 
 ```
 
