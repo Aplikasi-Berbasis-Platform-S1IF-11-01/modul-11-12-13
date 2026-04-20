@@ -2,7 +2,7 @@
   <br />
   <h1>LAPORAN PRAKTIKUM <br>APLIKASI BERBASIS PLATFORM</h1>
   <br />
-  <h3>MODUL 11, 12 & 13 <br> AJAX</h3>
+  <h3>MODUL 11, 12 & 13 <br> Laravel Aplikasi Inventori Toko</h3>
   <br />
   <br />
   <img src="assets/logo.png" alt="Logo" width="300"> 
