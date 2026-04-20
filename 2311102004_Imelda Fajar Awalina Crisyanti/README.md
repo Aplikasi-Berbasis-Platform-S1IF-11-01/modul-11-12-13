@@ -50,39 +50,39 @@
 
 ## 1. DASAR TEORI
 
-### Laravel Framework
-Laravel merupakan framework PHP open-source yang menggunakan pola arsitektur MVC (*Model-View-Controller*). Framework ini dirancang untuk mempermudah pengembangan aplikasi web secara cepat, terstruktur, dan efisien. Laravel menyediakan berbagai fitur bawaan seperti routing, middleware, ORM Eloquent, autentikasi, migration, seeder, serta Blade Template Engine yang membantu proses pengembangan aplikasi menjadi lebih mudah.
+### Laravel dalam Pengembangan Aplikasi
 
-### MVC (Model-View-Controller)
-MVC adalah pola arsitektur perangkat lunak yang membagi aplikasi menjadi tiga komponen utama, yaitu:
+Dalam pembuatan aplikasi inventori toko pada praktikum ini, digunakan Laravel sebagai kerangka kerja utama. Laravel dipilih karena memiliki struktur yang sudah terorganisir sehingga memudahkan dalam membangun aplikasi berbasis web.
 
-- **Model**: bertugas mengelola data dan berinteraksi dengan database.
-- **View**: bertanggung jawab menampilkan data kepada pengguna.
-- **Controller**: menghubungkan Model dan View serta mengatur logika aplikasi.
+Laravel menyediakan berbagai fitur yang langsung dapat digunakan, seperti pengaturan route, pengelolaan data dengan ORM, serta sistem autentikasi. Dengan adanya fitur tersebut, proses pengembangan aplikasi menjadi lebih cepat karena tidak perlu membangun semuanya dari awal.
 
-Dalam Laravel, konsep MVC diterapkan secara penuh sehingga struktur aplikasi menjadi lebih rapi, mudah dikembangkan, dan lebih mudah dipelihara.
+### Penerapan Pola MVC pada Aplikasi
 
-### Database Factory dan Seeder
-Factory dan Seeder merupakan fitur Laravel yang digunakan untuk membuat serta mengisi data otomatis ke dalam database.
+Pada aplikasi yang dibuat, konsep MVC diterapkan untuk membagi tugas dalam sistem.
 
-- **Factory** digunakan untuk membuat data dummy atau data uji.
-- **Seeder** digunakan untuk mengisi data awal ke dalam database.
+Bagian Model digunakan untuk mengelola data produk yang tersimpan di database.
+Bagian View digunakan untuk menampilkan halaman seperti login, dashboard, dan data produk.
+Bagian Controller digunakan untuk mengatur proses seperti menambah, mengubah, dan menghapus data.
 
-Fitur ini sangat membantu saat proses pengembangan dan pengujian aplikasi, terutama ketika data asli belum tersedia.
+Dengan pembagian tersebut, setiap bagian memiliki peran masing-masing sehingga kode menjadi lebih rapi dan tidak tercampur antara tampilan dan logika program.
 
-### Sistem Autentikasi dengan Session
-Autentikasi adalah proses verifikasi identitas pengguna dalam sistem. Laravel menyediakan sistem autentikasi berbasis session yang aman dan mudah digunakan. Session digunakan untuk menyimpan status login pengguna sehingga selama session masih aktif, pengguna dapat mengakses halaman yang dilindungi.
+### Pengelolaan Data dengan Seeder
 
-### Blade Template Engine
-Blade adalah template engine bawaan Laravel yang digunakan untuk membuat tampilan aplikasi. Blade memiliki sintaks yang sederhana namun tetap fleksibel, seperti:
+Dalam tahap pengembangan, diperlukan data awal untuk mencoba fitur yang dibuat. Oleh karena itu digunakan Seeder untuk memasukkan data ke dalam database.
 
-- `@extends`
-- `@section`
-- `@if`
-- `@foreach`
+Dengan adanya data ini, fitur seperti pencarian, pengeditan, dan penghapusan produk dapat langsung diuji tanpa harus memasukkan data secara manual satu per satu.
 
-Blade membantu developer membuat tampilan yang lebih bersih, modular, dan mudah dipahami.
+### Mekanisme Login pada Sistem
 
+Aplikasi ini memiliki fitur login yang berfungsi untuk membatasi akses pengguna. Hanya pengguna yang berhasil login yang dapat mengakses halaman utama aplikasi.
+
+Laravel memanfaatkan session untuk menyimpan informasi login, sehingga pengguna tidak perlu login ulang setiap kali berpindah halaman. Selain itu, digunakan middleware untuk memastikan halaman tertentu tidak dapat diakses tanpa proses autentikasi.
+
+### Penggunaan Blade pada Tampilan
+
+Dalam pembuatan tampilan, digunakan Blade Template yang mempermudah pengelolaan halaman. Dengan Blade, beberapa bagian tampilan seperti header dan layout dapat digunakan kembali di banyak halaman.
+
+Hal ini membuat kode tampilan menjadi lebih ringkas dan mudah dipahami. Selain itu, Blade juga mempermudah dalam menampilkan data dari database ke halaman web.
 ---
 
 ## 2. SOURCE CODE
