@@ -269,7 +269,7 @@ export default {
 
 ```
 
-## Output 
+## 3. OUTPUT
 
 ### A. login 
 
@@ -295,4 +295,37 @@ export default {
 <img src="output/data-produk.png" width="800">
 </p>
 
+### E. Tambah Produk
 
+<p>
+<img src="output/tambah-produk.png" width="800">
+</p>
+
+### F. Produk Berhasil Ditambahkan 
+
+<p>
+<img src="output/produk-ditambahkan.png" width="800">
+</p>
+
+### G. Tambah Data Otomatis
+
+<p>
+<img src="output/tambah-otomatis.png" width="800">
+</p>
+
+### H. Hapus produk
+
+<p>
+<img src="output/hapus-produk.png" width="800">
+</p>
+
+## 4. PEMBAHASAN SOURCE CODE
+Berdasarkan praktikum yang telah dilakukan, berikut adalah pembahasan mengenai implementasi bagian utama source code pada aplikasi Laravel Inventori Toko.
+
+### A. Routing (routes/web.php)
+
+Routing digunakan untuk mengatur alur navigasi di dalam aplikasi.
+
+- Auth Routes digunakan untuk proses login dan logout pengguna.
+- Redirect Routes digunakan agar halaman utama dan dashboard langsung diarahkan ke halaman data produk.
+- Protected Routes menggunakan AuthMiddleware untuk membatasi akses, sehingga hanya pengguna yang telah login yang dapat mengakses fitur manajemen produk.
