@@ -277,6 +277,14 @@ export default {
 <img src="output/login.png" width="800">
 </p>
 
+### B. Dashboard
+
+<p>
+<img src="output/dashboard.png" width="800">
+</p>
+
+### C. Data Produk
+
 
 
 
