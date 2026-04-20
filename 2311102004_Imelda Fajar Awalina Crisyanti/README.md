@@ -9,7 +9,7 @@
 <br><br>
 
 <p align="center">
-  <img src="asset/logo.png" width="300">
+  <img src="output/logo.png" width="300">
 </p>
 
 <br><br>
