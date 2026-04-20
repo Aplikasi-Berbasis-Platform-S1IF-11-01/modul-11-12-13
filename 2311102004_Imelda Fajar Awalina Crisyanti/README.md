@@ -316,7 +316,7 @@ export default {
 ### H. Hapus produk
 
 <p>
-<img src="output/hapus-produk.png" width="800">
+<img src="output/hapus.png" width="800">
 </p>
 
 ## 4. PEMBAHASAN SOURCE CODE
@@ -329,3 +329,87 @@ Routing digunakan untuk mengatur alur navigasi di dalam aplikasi.
 - Auth Routes digunakan untuk proses login dan logout pengguna.
 - Redirect Routes digunakan agar halaman utama dan dashboard langsung diarahkan ke halaman data produk.
 - Protected Routes menggunakan AuthMiddleware untuk membatasi akses, sehingga hanya pengguna yang telah login yang dapat mengakses fitur manajemen produk.
+
+### Controller (ProductController.php)
+
+Controller bertugas menghubungkan Model dengan View serta mengatur logika aplikasi.
+
+- index() digunakan untuk menampilkan daftar produk, lengkap dengan fitur pencarian, sorting, dan pagination.
+- create() digunakan untuk menampilkan form tambah produk.
+- store() digunakan untuk memproses penambahan produk baru, termasuk validasi input dan upload gambar.
+- edit() digunakan untuk menampilkan form edit produk.
+- update() digunakan untuk memperbarui data produk, termasuk mengganti gambar lama jika ada gambar baru yang diunggah.
+- destroy() digunakan untuk menghapus data produk beserta file gambar yang tersimpan.
+
+### C. Model (Product.php)
+
+Model digunakan untuk merepresentasikan tabel produk dalam database.
+
+- Properti fillable berfungsi menentukan field yang boleh diisi melalui mass assignment.
+- Properti casts digunakan untuk mengatur tipe data, seperti harga menjadi decimal dan stok menjadi integer.
+- Accessor seperti getFormattedPriceAttribute() digunakan untuk menampilkan harga dalam format rupiah.
+- Accessor getStockStatusAttribute() digunakan untuk memberikan status stok seperti Habis, Menipis, atau Tersedia.
+- Accessor getStockBadgeClassAttribute() digunakan untuk menyesuaikan tampilan badge stok pada antarmuka.
+
+### D. Sistem Autentikasi
+
+Aplikasi menggunakan autentikasi berbasis session. Pengguna harus login terlebih dahulu sebelum mengakses halaman produk. Middleware digunakan untuk memastikan bahwa hanya pengguna yang sudah terverifikasi yang dapat mengakses fitur CRUD.
+
+### E. Blade Template
+
+Blade digunakan untuk membangun tampilan aplikasi agar lebih modular dan mudah dikelola. Dengan Blade, halaman seperti login, dashboard, daftar produk, tambah produk, dan edit produk dapat dibuat dengan struktur yang lebih rapi menggunakan layout utama dan directive bawaan Laravel.
+
+### Konfigurasi Frontend
+
+Selain bagian backend, aplikasi ini juga menggunakan konfigurasi frontend modern.
+
+- Vite digunakan sebagai build tool untuk mengelola file CSS dan JavaScript.
+- Tailwind CSS digunakan untuk membangun tampilan yang lebih modern dan responsif.
+- PostCSS digunakan untuk memproses CSS agar kompatibel dengan berbagai browser.
+
+Kombinasi ketiga tools tersebut membuat proses pengembangan frontend menjadi lebih cepat, efisien, dan terstruktur.
+
+### Struktur Folder
+
+inventori-toko/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       ├── AuthController.php
+│   │       └── ProductController.php
+│   ├── Models/
+│   │   ├── Product.php
+│   │   └── User.php
+│   └── Providers/
+│       └── AppServiceProvider.php
+├── bootstrap/
+├── config/
+├── database/
+│   ├── factories/
+│   ├── migrations/
+│   └── seeders/
+├── public/
+├── resources/
+│   ├── css/
+│   ├── js/
+│   └── views/
+│       ├── auth/
+│       ├── layouts/
+│       └── products/
+├── routes/
+│   └── web.php
+├── storage/
+├── .env
+├── .env.example
+├── artisan
+├── composer.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+└── vite.config.js
+
+
+## KESIMPULAN 
+Pada praktikum ini, telah berhasil dibuat aplikasi berbasis Laravel dengan konsep MVC untuk manajemen inventori toko. Aplikasi memiliki fitur autentikasi, pengelolaan data produk, pencarian, sorting, pagination, upload gambar, serta fitur CRUD yang berjalan dengan baik.
+
+Penggunaan Laravel mempermudah proses pengembangan aplikasi karena memiliki struktur yang rapi, fitur bawaan yang lengkap, serta mendukung integrasi dengan tools modern seperti Vite, Tailwind CSS, dan PostCSS. Dengan pemisahan antara Model, View, dan Controller, aplikasi menjadi lebih mudah dipahami, dikembangkan, dan dipelihara.
