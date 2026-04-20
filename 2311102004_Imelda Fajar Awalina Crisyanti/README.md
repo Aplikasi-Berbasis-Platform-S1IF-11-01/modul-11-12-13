@@ -283,8 +283,16 @@ export default {
 <img src="output/dashboard.png" width="800">
 </p>
 
-### C. Data Produk
+### C. Register 
 
+<p>
+<img src="output/register.png" width="800">
+</p>
 
+### D. Data Produk
+
+<p>
+<img src="output/data-produk.png" width="800">
+</p>
 
 
