@@ -1267,22 +1267,22 @@ Form edit produk mendefinisikan halaman untuk memperbarui data produk yang sudah
 
 ---
 
-### 3.1 Halaman Utama
+### 3.2 Halaman Utama
 ![Hasil Tampilan](assets/2.png)
 
 ---
 
-### 3.1 Halaman Tambah Produk
+### 3.3 Halaman Tambah Produk
 ![Hasil Tampilan](assets/3.png)
 
 ---
 
-### 3.1 Halaman Edit Produk
+### 3.4 Halaman Edit Produk
 ![Hasil Tampilan](assets/4.png)
 
 ---
 
-### 3.1 Halaman Hapus Produk
+### 3.5 Halaman Hapus Produk
 ![Hasil Tampilan](assets/5.png)
 
 ---
