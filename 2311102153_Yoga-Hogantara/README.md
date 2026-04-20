@@ -847,7 +847,7 @@ Form edit menggunakan metode PUT (di-*spoof* melalui `@method('PUT')`) ke route 
  
 Halaman autentikasi pengguna dengan desain *card* terpusat di atas latar belakang Carbon Black. Form terdiri dari field email dan password dengan ikon Bootstrap Icons pada setiap input group. Pesan error validasi dari server ditampilkan dalam blok alert di atas form. Pengguna harus memasukkan kredensial yang valid untuk dapat mengakses halaman inventaris produk.
  
-![Login](public/assets/1.PNG)
+![Login](public/assets/1.png)
  
 ---
  
@@ -855,7 +855,7 @@ Halaman autentikasi pengguna dengan desain *card* terpusat di atas latar belakan
  
 Halaman utama sistem yang menampilkan seluruh data produk dalam tabel interaktif. Terdapat search bar di bagian atas untuk menyaring data berdasarkan nama atau deskripsi produk. Setiap baris menampilkan nama produk, cuplikan deskripsi, harga (diformat via accessor `formatted_price`), dan badge stok berwarna dinamis (merah/kuning/hijau). Tombol **Edit** mengarahkan ke halaman edit, sementara tombol **Hapus** membuka modal konfirmasi Bootstrap sebelum data dihapus.
  
-![Produk](public/assets/2.PNG)
+![Produk](public/assets/2.png)
  
 ---
  
@@ -863,7 +863,7 @@ Halaman utama sistem yang menampilkan seluruh data produk dalam tabel interaktif
  
 Halaman formulir untuk menambahkan data produk baru. Form terdiri dari field nama produk, deskripsi, serta harga dan stok yang ditampilkan dalam layout dua kolom berdampingan dengan prefix/suffix `Rp` dan `pcs`. Validasi sisi server menampilkan pesan error secara *inline* di bawah field yang bermasalah. Tombol **Batal** mengarahkan kembali ke halaman daftar produk tanpa menyimpan perubahan.
  
-![Create](public/assets/3.PNG)
+![Create](public/assets/3.png)
  
 ---
  
@@ -871,7 +871,7 @@ Halaman formulir untuk menambahkan data produk baru. Form terdiri dari field nam
  
 Halaman formulir untuk memperbarui data produk yang sudah ada. Seluruh field terisi secara otomatis dengan data produk yang dipilih menggunakan `old()` dengan fallback ke nilai database. Header halaman menampilkan ID dan nama produk yang sedang diedit sebagai konteks. Perubahan dikirimkan menggunakan metode HTTP `PUT` melalui mekanisme *method spoofing* Laravel (`@method('PUT')`).
  
-![Edit](public/assets/4.PNG)
+![Edit](public/assets/4.png)
  
 ---
  
