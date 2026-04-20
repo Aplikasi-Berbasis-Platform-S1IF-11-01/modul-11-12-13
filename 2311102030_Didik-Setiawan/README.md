@@ -71,7 +71,7 @@ Proyek ini dikembangkan sebagai tugas untuk Modul 11, 12, dan 13, yang bertujuan
 ### 1. Clone / Download Project
 
 ```bash
-git clone
+git clone https://github.com/Aplikasi-Berbasis-Platform-S1IF-11-01/modul-11-12-13/tree/main/2311102030_Didik-Setiawan
 ```
 
 ### 2. Install Dependency PHP
